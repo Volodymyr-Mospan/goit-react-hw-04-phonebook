@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -11,9 +11,9 @@ import {
 } from 'components/Contacts/';
 // import css from './Contacts.module.css';
 
-export class ContactForm extends Component {
-  initialValues = { name: '', number: '' };
-  schema = yup.object().shape({
+export const ContactForm = ({ onSubmit, onCheck }) => {
+  const initialValues = { name: '', number: '' };
+  const schema = yup.object().shape({
     name: yup
       .string()
       .matches(
@@ -31,8 +31,7 @@ export class ContactForm extends Component {
       ),
   });
 
-  handleSubmit = (values, { resetForm }) => {
-    const { onSubmit, onCheck } = this.props;
+  const handleSubmit = (values, { resetForm }) => {
     const isContactsInclude = onCheck(values.name);
 
     if (isContactsInclude) {
@@ -44,38 +43,29 @@ export class ContactForm extends Component {
     resetForm();
   };
 
-  handleInputChange = e => {
-    const { name, value } = e.currentTarget;
-    this.setState({ [name]: value });
-  };
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={schema}
+      onSubmit={handleSubmit}
+    >
+      <FormStyled>
+        <Label>
+          Name
+          <Input type="text" name="name" />
+          <ErrorMessage name="name" component={ErrorMessageStyled} />
+        </Label>
+        <Label>
+          Number
+          <Input type="tel" name="number" />
+          <ErrorMessage name="number" component={ErrorMessageStyled} />
+        </Label>
 
-  render() {
-    // const { name, number } = this.state;
-
-    return (
-      <Formik
-        initialValues={this.initialValues}
-        validationSchema={this.schema}
-        onSubmit={this.handleSubmit}
-      >
-        <FormStyled>
-          <Label>
-            Name
-            <Input type="text" name="name" />
-            <ErrorMessage name="name" component={ErrorMessageStyled} />
-          </Label>
-          <Label>
-            Number
-            <Input type="tel" name="number" />
-            <ErrorMessage name="number" component={ErrorMessageStyled} />
-          </Label>
-
-          <FormBtn type="submit">Add contact</FormBtn>
-        </FormStyled>
-      </Formik>
-    );
-  }
-}
+        <FormBtn type="submit">Add contact</FormBtn>
+      </FormStyled>
+    </Formik>
+  );
+};
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
