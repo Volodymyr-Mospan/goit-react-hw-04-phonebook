@@ -1,0 +1,66 @@
+/* ======================== Contacts Form ======================== */
+.contactsForm {
+  /* display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+
+  padding: 15px; */
+}
+
+.contactsForm__lable {
+  /* display: flex;
+  flex-direction: column;
+  gap: 10px; */
+}
+
+.contactsForm__input {
+  /* padding: 10px 25px;
+  border-radius: 10px; */
+}
+
+.contactsForm__btn {
+  /* width: 150px;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 10px; */
+}
+
+/* ======================== Filter ======================== */
+
+.filter__lable {
+  /* display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px; */
+}
+
+.filter__input {
+  /* padding: 10px 25px;
+  border-radius: 10px;
+  width: 400px; */
+}
+
+/* ======================== Contacts Form ======================== */
+
+.contacts__list {
+  /* padding: 0 0 0 15px; */
+}
+
+.contacts__item {
+  /* display: flex;
+  align-items: center; */
+}
+
+.contacts__item::before {
+  /* content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  margin-right: 20px;
+  background-color: black; */
+}
+.contacts__btn {
+  margin-left: auto;
+  padding: 5px 25px;
+}
