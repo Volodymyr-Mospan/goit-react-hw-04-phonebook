@@ -57,12 +57,24 @@ export const FilterInput = styled.input`
 `;
 
 export const ContactListStyled = styled.ul`
-  padding: 0 0 0 15px;
+  padding: 0 50px 0 15px;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  gap: 5px;
 `;
 
 export const ContactStyled = styled.li`
   display: flex;
   align-items: center;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  );
 
   &::before {
     content: '';
@@ -77,6 +89,6 @@ export const ContactStyled = styled.li`
 export const ContactBtn = styled.button`
   margin-left: auto;
   padding: 5px 25px;
-  /* border-radius: 8px; */
+  border-radius: 0 13px 13px 0;
   cursor: pointer;
 `;
