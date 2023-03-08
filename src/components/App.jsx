@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm, ContactList, Filter } from 'components/Contacts/';
+import { StyledApp } from 'components/App.styled';
 
 export const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -50,12 +51,14 @@ export const App = () => {
   };
 
   return (
-    <div
-      style={{
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
+    <StyledApp
+    // style={
+    //   {
+    //     // alignItems: 'center',
+    //     // fontSize: 20,
+    //     // color: '#010101',
+    //   }
+    // }
     >
       <div className={'container'}>
         <h1>Phonebook</h1>
@@ -67,6 +70,6 @@ export const App = () => {
         <Filter filter={filter} onChange={handleFilter} />
         <ContactList contacts={getFilteredContacts()} onClick={deleteContact} />
       </div>
-    </div>
+    </StyledApp>
   );
 };
